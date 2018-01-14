@@ -11,8 +11,11 @@ class Base(db.Model):
     created_at = db.Column(db.DateTime, default = datetime.utcnow)
     updated_at = db.Column(db.DateTime, default = datetime.utcnow)
 
+#Status code: 1-active, 2-inprogress, 3-pass, 4-denied
 applications = db.Table('applications', db.Column('user_id',db.Integer, db.ForeignKey('user.id'), primary_key=True),
-                                        db.Column('job_id', db.Integer, db.ForeignKey('job.id'), primary_key=True)
+                                        db.Column('job_id', db.Integer, db.ForeignKey('job.id'), primary_key=True),
+                                        db.Column('status'), db.Integer),
+                                        db.Column('created_at', db.DateTime, default = datetime.utcnow)
                                         )
 
 
@@ -35,7 +38,8 @@ class User(Base, UserMixin):
     resumeId = db.Column(db.Integer, unique=True) #1/13/18 Can I change flask config to customize stored folder name?
     realName = db.Column(db.String(64), nullable=False)
     phoneNumber = db.Column(db.Integer)
-    jobs = db.relationship('job', secondary=applications, lazy='subquery', backref=db.backref('users',lazy=True))
+    applied_jobs = db.relationship('job', secondary=applications, lazy='subquery', backref=db.backref('users',lazy=True)),
+    active = db.Column(db.Boolean, default = True)
 
     def __repr__(self):
         return '<User:{}>'.format(self.username)
@@ -69,6 +73,7 @@ class Company(Base):
     number_of_people = db.Column(db.Integer, nullable = False)
     published_job = db.relationship('Job')
     url = db.Column(db.String(256))
+    full_description = db.Column(db.String(256))
 
 class Job(Base):
     __tablename__ = 'job'
@@ -81,6 +86,9 @@ class Job(Base):
     salary = db.Column(db.String(32))
     experience = db.Column(db.String(32))
     education = db.Column(db.String(32))
+    location = db.Column(db.String(32))
+    number = db.Column(db.Integer)
+    active = db.Column(db.Boolean, default = True)
 
 
 
