@@ -1,8 +1,8 @@
 """init db
 
-Revision ID: 2c59499ae22d
+Revision ID: 135ebe52a0bb
 Revises: 
-Create Date: 2018-01-14 06:02:50.812744
+Create Date: 2018-01-15 02:18:49.736902
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2c59499ae22d'
+revision = '135ebe52a0bb'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,6 +26,7 @@ def upgrade():
     sa.Column('location', sa.String(length=32), nullable=False),
     sa.Column('number_of_people', sa.Integer(), nullable=False),
     sa.Column('url', sa.String(length=256), nullable=True),
+    sa.Column('full_description', sa.String(length=256), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('job',
@@ -38,6 +39,9 @@ def upgrade():
     sa.Column('salary', sa.String(length=32), nullable=True),
     sa.Column('experience', sa.String(length=32), nullable=True),
     sa.Column('education', sa.String(length=32), nullable=True),
+    sa.Column('location', sa.String(length=32), nullable=True),
+    sa.Column('number', sa.Integer(), nullable=True),
+    sa.Column('active', sa.Boolean(), nullable=True),
     sa.ForeignKeyConstraint(['company_id'], ['company.id'], ondelete='SET NULL'),
     sa.PrimaryKeyConstraint('id')
     )
@@ -54,6 +58,7 @@ def upgrade():
     sa.Column('resumeId', sa.Integer(), nullable=True),
     sa.Column('realName', sa.String(length=64), nullable=False),
     sa.Column('phoneNumber', sa.Integer(), nullable=True),
+    sa.Column('active', sa.Boolean(), nullable=True),
     sa.ForeignKeyConstraint(['company_id'], ['company.id'], ondelete='SET NULL'),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('resumeId')
@@ -63,6 +68,8 @@ def upgrade():
     op.create_table('applications',
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('job_id', sa.Integer(), nullable=False),
+    sa.Column('status', sa.Integer(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['job_id'], ['job.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('user_id', 'job_id')

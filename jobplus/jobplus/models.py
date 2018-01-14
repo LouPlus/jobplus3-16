@@ -14,7 +14,7 @@ class Base(db.Model):
 #Status code: 1-active, 2-inprogress, 3-pass, 4-denied
 applications = db.Table('applications', db.Column('user_id',db.Integer, db.ForeignKey('user.id'), primary_key=True),
                                         db.Column('job_id', db.Integer, db.ForeignKey('job.id'), primary_key=True),
-                                        db.Column('status'), db.Integer),
+                                        db.Column('status', db.Integer),
                                         db.Column('created_at', db.DateTime, default = datetime.utcnow)
                                         )
 
@@ -36,7 +36,7 @@ class User(Base, UserMixin):
     _password = db.Column("password", db.String(256), nullable=False) # the first argument can be an optional string to represent a different name
     role = db.Column(db.SmallInteger, default= ROLE_USER)
     resumeId = db.Column(db.Integer, unique=True) #1/13/18 Can I change flask config to customize stored folder name?
-    realName = db.Column(db.String(64), nullable=False)
+    realName = db.Column(db.String(64))
     phoneNumber = db.Column(db.Integer)
     applied_jobs = db.relationship('job', secondary=applications, lazy='subquery', backref=db.backref('users',lazy=True)),
     active = db.Column(db.Boolean, default = True)
@@ -68,9 +68,9 @@ class Company(Base):
     __tablename__ = 'company'
     
     id = db.Column(db.Integer, primary_key=True)
-    website = db.Column(db.String(256),nullable = False)
+    website = db.Column(db.String(256))
     location = db.Column(db.String(32), nullable = False)
-    number_of_people = db.Column(db.Integer, nullable = False)
+    number_of_people = db.Column(db.String(32), nullable = False)
     published_job = db.relationship('Job')
     url = db.Column(db.String(256))
     full_description = db.Column(db.String(256))
