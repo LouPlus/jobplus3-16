@@ -14,15 +14,20 @@
 	{% elif field.type == 'SelectField' %}
 	<div class="form-group">
     	<label for="sel1"> Select Number of People(select one):</label>
-    	<select class="form-control" id="sel1">
+    	<select class="form-control" id="sel1" name="number_of_people">
     		{% for key, value, checked in form.number_of_people.iter_choices() %}
-    		<option> {{ value }} </option>
+    		<option value={{ key}} > {{ value }} </option>
     		{% endfor %}
     	</select>
     </div>
     {% else %}
-    <div class="form-group">
-    	{{ field.label }} {{ field(class='form-control') }}
+    <div class="form-group {% if field.errors %}has-error{% endif %}">
+    	{{ field.label }} {{ field(class='form-control') }} <!--will auto generate input tag -->
+        {% if field.errors %}
+          {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+          {% endfor %}
+        {% endif %}
     </div>
     {% endif %}
     {% endfor %}

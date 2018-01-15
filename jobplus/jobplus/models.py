@@ -11,6 +11,14 @@ class Base(db.Model):
     created_at = db.Column(db.DateTime, default = datetime.utcnow)
     updated_at = db.Column(db.DateTime, default = datetime.utcnow)
 
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
 #Status code: 1-active, 2-inprogress, 3-pass, 4-denied
 applications = db.Table('applications', db.Column('user_id',db.Integer, db.ForeignKey('user.id'), primary_key=True),
                                         db.Column('job_id', db.Integer, db.ForeignKey('job.id'), primary_key=True),
@@ -74,6 +82,7 @@ class Company(Base):
     published_job = db.relationship('Job')
     url = db.Column(db.String(256))
     full_description = db.Column(db.String(256))
+
 
 class Job(Base):
     __tablename__ = 'job'
