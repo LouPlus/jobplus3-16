@@ -14,12 +14,7 @@ class Base(FlaskForm):
     password = PasswordField('Password', validators=[Required(), Length(6, 24)])
     repeat_password = PasswordField('Password again', validators=[Required(), EqualTo('password')])
 
-    def validate_username(self, field):
-        if User.query.filter_by(username=field.data).first():
-            raise ValidationError("User already exists")
-    def validate_email(self, field):
-        if User.query.filter_by(email=field.data).first():
-            raise ValidationError('Email already registered')
+    
 
 class CompanyRegisterForm(Base):
 
@@ -27,6 +22,13 @@ class CompanyRegisterForm(Base):
     location = StringField('Location', validators=[Required()])
     number_of_people = SelectField('Number of People', choices = PEOPLE_CHOICES)
     submit = SubmitField('Submit')
+
+    def validate_username(self, field):
+        if User.query.filter_by(username=field.data).first():
+            raise ValidationError("User already exists")
+    def validate_email(self, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('Email already registered')
 
     def create_companyProfile(self):
         user = User()
@@ -52,8 +54,23 @@ class UserRegisterForm(Base):
         user.password = self.password.data
         user.save()
 
+    def validate_username(self, field):
+        if User.query.filter_by(username=field.data).first():
+            raise ValidationError("User already exists")
+    def validate_email(self, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('Email already registered')
+
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[Required(), Email()])
+    username = StringField('Username', validators=[Required()])
     password = PasswordField('Password', validators=[Required(), Length(6, 24)])
     remember_me = BooleanField('Remember me')
     submit = SubmitField('Submit')
+
+    def validate_username(self, field):
+        if field.data and not User.query.filter_by(username=field.data).first():
+            raise ValidationError('Username does not exist')
+    def validate_password(self, field):
+        user = User.query.filter_by(username=self.username.data).first()
+        if user and not user.check_password(field.data):
+            raise ValidationError('Password incorrect')
