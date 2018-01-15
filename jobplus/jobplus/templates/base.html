@@ -12,6 +12,18 @@
     	<nav class="navbar navbar-default">
   <div class="container">
 	<!-- Brand and toggle get grouped for better mobile display -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          {{ message }}
+        </div>
+      {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
 	<div class="navbar-header">
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		<span class="sr-only">Toggle navigation</span>
@@ -28,10 +40,25 @@
 		<li class="active"><a href="/">Jobs<span class="sr-only">(current)</span></a></li>
 		<li><a href="#">Company</a></li>
 	</ul>
-	<ul class="nav navbar-nav navbar-right">       
+	<ul class="nav navbar-nav navbar-right">  
+    {% if not current_user.is_authenticated %}     
         <li><a href="{{ url_for('front.company_register') }}">Company Register</a></li>
         <li><a href="{{ url_for('front.user_register') }}">User Register</a></li>
         <li><a href="{{ url_for('front.login') }}">Login</a></li>
+    {% else %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false>">
+            {{ current_user.username }}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Main Page</a></li>
+            <li role="separator" class="divider"></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ url_for('front.logout') }}">Logout</a></li>
+          </ul>
+        </li>
+        {% endif %}
+
+
 	</ul>
 	</div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
