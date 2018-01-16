@@ -3,7 +3,14 @@
 {%block title %}Home{% endblock %}
 
 {%block body %}
-{% for course in courses %}
-<h1>{{ course.name }} - {{ course.author.username }}</h1>
-{% endfor %}
+<div class="jumbotron">
+	<div class='container'>
+		<h1>JobPlus</h1>
+		<p> Your dream starts here</p>
+	</div>
+</div>
+
+<div class="page-header">
+	<h2> New release jobs</h2>
+</div>
 {% endblock %}
