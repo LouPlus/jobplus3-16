@@ -1,0 +1,20 @@
+[
+{"salary": "10k-20k", "experience": "\u7ecf\u9a8c3-5\u5e74", "name": "java\u5de5\u7a0b\u5e08", "create_date": "[2018-01-08]", "company": "4DAGE"},
+{"salary": "5k-10k", "experience": "\u7ecf\u9a8c1-3\u5e74", "name": "\u52a8\u753b\u5e08", "create_date": "[1\u5929\u524d\u53d1\u5e03]", "company": "\u827a\u753b\u5f00\u5929"},
+{"salary": "10k-20k", "experience": "\u7ecf\u9a8c3-5\u5e74", "name": "\u754c\u9762\u4ea4\u4e92\u8bbe\u8ba1\u5de5\u7a0b\u5e08", "create_date": "[10:45\u53d1\u5e03]", "company": "appcoachS"},
+{"salary": "15k-30k", "experience": "\u7ecf\u9a8c3-5\u5e74", "name": "\u6570\u636e\u6316\u6398/\u7b97\u6cd5\u5de5\u7a0b\u5e08", "create_date": "[10:45\u53d1\u5e03]", "company": "\u6d0b\u7801\u5934"},
+{"salary": "10k-15k", "experience": "\u7ecf\u9a8c\u5e94\u5c4a\u6bd5\u4e1a\u751f", "name": "Scrum Master Manager", "create_date": "[10:44\u53d1\u5e03]", "company": "\u827e\u65af\u666e"},
+{"salary": "10k-20k", "experience": "\u7ecf\u9a8c3-5\u5e74", "name": "\u524d\u7aef\u5f00\u53d1\u5de5\u7a0b\u5e08", "create_date": "[10:44\u53d1\u5e03]", "company": "\u72ee\u535a"},
+{"salary": "8k-13k", "experience": "\u7ecf\u9a8c1-3\u5e74", "name": "ios\u5f00\u53d1\u5de5\u7a0b\u5e08", "create_date": "[10:44\u53d1\u5e03]", "company": "\u5f00\u79d1\u552f\u8bc6"},
+{"salary": "10K-20K", "experience": "\u7ecf\u9a8c5-10\u5e74", "name": "\u4e3b\u7f16", "create_date": "[10:44\u53d1\u5e03]", "company": "\u5927\u8c61\u70b9\u6620"},
+{"salary": "10k-15k", "experience": "\u7ecf\u9a8c\u5e94\u5c4a\u6bd5\u4e1a\u751f", "name": "UI\u8bbe\u8ba1\u5e08", "create_date": "[10:44\u53d1\u5e03]", "company": "\u6613\u5065"},
+{"salary": "4k-6k", "experience": "\u7ecf\u9a8c\u4e0d\u9650", "name": "\u7535\u5546\u6444\u5f71\u5e08", "create_date": "[11:40\u53d1\u5e03]", "company": "\u897f\u8499\u8fbe"},
+{"salary": "20k-30k", "experience": "\u7ecf\u9a8c5-10\u5e74", "name": "\u8fd0\u8425\u7ecf\u7406 \uff08\u7f8e\u56e2\u5916\u5356\u914d\u9001\u4e8b\u4e1a\u90e8\uff09", "create_date": "[11:39\u53d1\u5e03]", "company": "\u7f8e\u56e2\u70b9\u8bc4"},
+{"salary": "15k-25k", "experience": "\u7ecf\u9a8c5-10\u5e74", "name": "\u5e7f\u544a\u5ba2\u6237\u7ecf\u7406", "create_date": "[11:39\u53d1\u5e03]", "company": "\u9177\u5bb6\u4e50"},
+{"salary": "2k-3k", "experience": "\u7ecf\u9a8c\u5e94\u5c4a\u6bd5\u4e1a\u751f", "name": "Tech Writer", "create_date": "[11:39\u53d1\u5e03]", "company": "\u9177\u5bb6\u4e50"},
+{"salary": "4k-6k", "experience": "\u7ecf\u9a8c1-3\u5e74", "name": "\u82f1\u9ad8 \u65b0\u5a92\u4f53\u8fd0\u8425", "create_date": "[11:37\u53d1\u5e03]", "company": "\u68d2\u5446\uff01"},
+{"salary": "3k-4k", "experience": "\u7ecf\u9a8c\u5e94\u5c4a\u6bd5\u4e1a\u751f", "name": "\u8fd0\u8425\u57f9\u8bad\u751f\uff08\u5b9e\u4e60\uff09", "create_date": "[11:37\u53d1\u5e03]", "company": "\u68d2\u5446\uff01"},
+{"salary": "30k-50k", "experience": "\u7ecf\u9a8c10\u5e74\u4ee5\u4e0a", "name": "\u6280\u672f\u603b\u76d1", "create_date": "[11:37\u53d1\u5e03]", "company": "Ways"},
+{"salary": "10k-20k", "experience": "\u7ecf\u9a8c1-3\u5e74", "name": "\u670d\u52a1\u8bbe\u8ba1\u4ea7\u54c1\u7ecf\u7406", "create_date": "[11:37\u53d1\u5e03]", "company": "\u5065\u5ba2\u7f51"},
+{"salary": "3k-5k", "experience": "\u7ecf\u9a8c\u4e0d\u9650", "name": "\u5ba2\u670d\u4ee3\u8868", "create_date": "[11:37\u53d1\u5e03]", "company": "\u54aa\u5495"}
+]
