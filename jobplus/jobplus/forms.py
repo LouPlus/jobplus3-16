@@ -35,13 +35,13 @@ class CompanyRegisterForm(Base):
         company = Company()
         company.location = self.location.data
         company.number_of_people = dict(PEOPLE_CHOICES).get(self.number_of_people.data)
+        company.company_name = self.companyName.data
 
         company.save()
         user.company_id = company.id
         user.username = self.username.data
         user.email = self.email.data
         user.password = self.password.data
-        user.realName = self.companyName.data
         user.save()
 
 class UserRegisterForm(Base):

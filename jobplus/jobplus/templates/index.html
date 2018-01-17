@@ -3,7 +3,48 @@
 {%block title %}Home{% endblock %}
 
 {%block body %}
-{% for course in courses %}
-<h1>{{ course.name }} - {{ course.author.username }}</h1>
-{% endfor %}
+<div class="jumbotron">
+	<div class='container'>
+		<h1>JobPlus</h1>
+		<p> Your dream starts here</p>
+	</div>
+</div>
+
+<div class="page-header">
+	<h2> New release jobs</h2>
+</div>
+
+<div class="row">
+  {% for job in jobs %}
+  <div class="col-sm-6 col-md-4 job">
+    <div class="thumbnail">
+        <div class="caption">
+            <a href = '{{ url_for('job.detail',job_id = job.id) }}'><h4 class="job__name">{{ job.title }}</h4></a>
+            <a href = '{{ url_for('company.detail',company_id = job.company.id) }}'><p class="job__company">{{ job.company.company_name }}</p></a>
+            <p class="job_salary">{{ job.salary }}</p>
+            <p class="job_experience">{{ job.experience }}</p>
+            <p class="publish_date">{{ job.release_time }}</p>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class = "page-header">
+  <h1> New Companies </h1>
+</div>
+<div class="row">
+  {% for company in companies %}
+  <div class="col-sm-6 col-md-4 company">
+    <div class="thumbnail">
+        <div class="caption">
+            <a href = '{{ url_for('company.detail',company_id = company.id) }}'><p class="company__name">{{ company.company_name }}</p></a>
+            <p class="company_description">{{ company.full_description }}</p>
+            <p class="company_location">{{ company.location }}</p>
+            
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
