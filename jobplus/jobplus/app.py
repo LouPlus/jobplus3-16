@@ -22,9 +22,10 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    from .handlers import front #, course, admin
+    from .handlers import front, job, company #, course, admin
     app.register_blueprint(front)
-#    app.register_blueprint(course)
+    app.register_blueprint(job)
+    app.register_blueprint(company)
 #    app.register_blueprint(admin)
 
 

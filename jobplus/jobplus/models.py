@@ -82,6 +82,7 @@ class Company(Base):
     published_job = db.relationship('Job')
     url = db.Column(db.String(256))
     full_description = db.Column(db.String(256))
+    company_name = db.Column(db.String(64))
 
 
 class Job(Base):
@@ -90,14 +91,16 @@ class Job(Base):
     id = db.Column(db.Integer,primary_key=True)
     company_id = db.Column(db.Integer, db.ForeignKey('company.id', ondelete = 'SET NULL'))
     company = db.relationship('Company', uselist=False)
-    title = db.Column(db.String(32))
+    title = db.Column(db.String(128))
     description = db.Column(db.String(256))
     salary = db.Column(db.String(32))
-    experience = db.Column(db.String(32))
+    experience = db.Column(db.String(128))
     education = db.Column(db.String(32))
     location = db.Column(db.String(32))
     number = db.Column(db.Integer)
     active = db.Column(db.Boolean, default = True)
+    url = db.Column(db.String(256))
+    release_time = db.Column(db.String(64))
 
 
 

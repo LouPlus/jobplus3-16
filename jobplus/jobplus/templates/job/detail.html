@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class = "horizon">
+	<div class="row">
+		<div class="col-md-9">
+			<div class = "media">
+				<div class = "media-left">
+					<a href  = "{{ url_for('job.detail',job_id = job.id) }}">
+						<img width = "120" height = "120" alt = "comp" src = /static/spotify-logo-100410746-large.png/>
+					</a>
+				</div>
+				<div class = "media-body">
+					<h3> {{ job.title }}</h3>
+					<p> {{ company.company_name }}</p>
+					<p> {{ job.experience }}</p>
+					<p style = "color:#ff8000;"> {{ job.salary }}</p>
+				</div>
+			</div>
+		</div>
+        <div class = "col-md-3" style = "padding-top:15px;">
+        	<a href = "#" type = "button" class = "btn btn-success">
+        		Apply
+        	</a>
+        </div>
+    </div>
+</div>
+        <div><h3> Description</h3>
+        	<ul>
+        		<li>{{ job.description }}<li>
+
+            </ul>
+            <h3> Basic Information </h3>
+            <ul>
+            	<li> salary: {{ job.salary }}</li>
+            	<li> location: {{ job.location }}</li>
+            	<li> experience: {{ job.experience }}</li>
+            </ul>
+        </div>
+ 
+
+
+	{% endblock %}
